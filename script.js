@@ -31,8 +31,18 @@ function removeAllChildNodes(parent) {
         parent.removeChild(parent.firstChild)
     }
 }
+function checkNumber() {
+    num = prompt ("What size grid would you like?") 
+    if (num > 0 && num <= 64) {
+        appendCell(num)
+    }
+    else {
+        alert ("Please enter a number up to 64")
+        checkNumber()
+    }
+}
 
 setGrid.addEventListener ("click", e => {
     removeAllChildNodes(container)
-    appendCell(prompt ("What size grid would you like?")) 
+    checkNumber()
 })
